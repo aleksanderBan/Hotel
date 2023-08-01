@@ -19,33 +19,24 @@ namespace Hotel
         public Data()
         {
             Connection = new MySqlConnection(ConnectionString);
-        }
-
-        public int Insert(string query)
-        {
-            MySqlCommand commandDatabase = new MySqlCommand(query, Connection);
 
             try
             {
                 Connection.Open();
-                int result = commandDatabase.ExecuteNonQuery();
-                Console.WriteLine(commandDatabase.LastInsertedId);
+                Console.WriteLine("Database connection successful.");
                 Connection.Close();
-                return (int)commandDatabase.LastInsertedId;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Database connection failed: " + ex.Message);
             }
-
-            return -1;
         }
 
         //Insert an account into the database
         public int AccountDB(Account account)
         {
             string query = $"INSERT INTO account (username, email) " +
-                   $"VALUES ({account.Username}, {account.Email});";
+                   $"VALUES ('{account.Username}', '{account.Email}');";
 
             int accountId = -1;
 

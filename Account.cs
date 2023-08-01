@@ -12,9 +12,9 @@ namespace Hotel
         public string Username { get; set; }
         public string Email { get; set; }
 
-        public Account(int id, string username, string email)
+        public Account(string username, string email)
         {
-            ID = id;
+            ID = 0;
             Username = username;
             Email = email;
         }
