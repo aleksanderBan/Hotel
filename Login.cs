@@ -12,6 +12,7 @@ namespace Hotel
 {
     public partial class Login : Form
     {
+        private Data data = new Data();
         public Login()
         {
             InitializeComponent();
@@ -27,6 +28,25 @@ namespace Hotel
         public void ShowLoginForm()
         {
             this.Show();
+        }
+
+        //login functionality
+        private void login_btn_Click(object sender, EventArgs e)
+        {
+            string input_email = email_textbox.Text;
+
+            // Check if the input email exists in the database
+            bool emailExists = data.EmailDB(input_email);
+
+            if (emailExists)
+            {
+                // Proceed with further actions since the email exists in the database
+                MessageBox.Show("Email exists in the database. You can proceed.");
+            }
+            else
+            {
+                MessageBox.Show("Email does not exist in the database.");
+            }
         }
     }
 }

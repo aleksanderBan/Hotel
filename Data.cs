@@ -58,5 +58,31 @@ namespace Hotel
 
             return accountId;
         }
+
+        //Check if email is in the database from the Login form
+        public bool EmailDB(string email)
+        {
+            string query = $"SELECT COUNT(*) FROM account WHERE email = @email";
+
+            try
+            {
+                Connection.Open();
+                MySqlCommand commandDatabase = new MySqlCommand(query, Connection);
+                commandDatabase.Parameters.AddWithValue("@email", email);
+                long result = (long)commandDatabase.ExecuteScalar();
+                Connection.Close();
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return false;
+        }
     }
 }
