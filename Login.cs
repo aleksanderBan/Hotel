@@ -18,7 +18,7 @@ namespace Hotel
             InitializeComponent();
         }
 
-        //createAccount_btn functionality
+        //account functionality
         private void createAccount_btn_Click(object sender, EventArgs e)
         {
             CreateAccount createAccountForm = new CreateAccount(this);
@@ -41,7 +41,10 @@ namespace Hotel
             if (emailExists)
             {
                 // Proceed with further actions since the email exists in the database
-                MessageBox.Show("Email exists in the database. You can proceed.");
+                MessageBox.Show($"Logged in as{input_email}");
+                Rooms RoomsForm = new Rooms();
+                RoomsForm.Show();
+                this.Hide();
             }
             else
             {
