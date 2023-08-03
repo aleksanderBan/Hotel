@@ -11,7 +11,7 @@ namespace Hotel
             InitializeComponent();
         }
 
-        //Find available rooms
+        // Find available rooms
         private void findRooms_btn_Click(object sender, EventArgs e)
         {
             string startDatestr = arrivalDate_text.Text;
@@ -19,13 +19,17 @@ namespace Hotel
 
             // Perform the database query to find available rooms
             Data data = new Data();
-            List<string> availableRooms = data.AvailableRoomsDB(startDatestr, endDatestr);
+            List<(string RoomId, string RoomInfo)> availableRooms = data.AvailableRoomsDB(startDatestr, endDatestr);
 
             if (availableRooms.Count > 0)
             {
-                // Display the list of available rooms in the ListBox
+                // Display the list of available rooms in a ListBox or any other control
                 availableRooms_list.Items.Clear();
-                availableRooms_list.Items.AddRange(availableRooms.ToArray());
+                foreach (var room in availableRooms)
+                {
+                    string roomDetails = $"Room ID: {room.RoomId}, Info: {room.RoomInfo}";
+                    availableRooms_list.Items.Add(roomDetails);
+                }
             }
             else
             {

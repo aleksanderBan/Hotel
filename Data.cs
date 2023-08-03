@@ -86,9 +86,9 @@ namespace Hotel
         }
 
         //Find available rooms in the DB
-        public List<string> AvailableRoomsDB(string startDateStr, string endDateStr)
+        public List<(string RoomID, string RoomInfo)> AvailableRoomsDB(string startDateStr, string endDateStr)
         {
-            List<string> availableRooms = new List<string>();
+            List<(string RoomId, string RoomInfo)> availableRooms = new List<(string, string)>();
 
             DateTime startDate, endDate;
             if (DateTime.TryParse(startDateStr, out startDate) && DateTime.TryParse(endDateStr, out endDate))
@@ -112,7 +112,7 @@ namespace Hotel
                                 string roomType = reader["type"].ToString();
                                 string roomDate = reader["date"].ToString();
                                 string roomInfo = reader["info"].ToString();
-                                availableRooms.Add(roomId);
+                                availableRooms.Add((roomId, roomInfo));
                             }
                         }
                     }
