@@ -137,5 +137,33 @@ namespace Hotel
             }
             return allDatesInRange;
         }
+
+        //Get username from email from the DB
+        public string GetUsernameByEmail(string email)
+        {
+            string query = "SELECT username FROM account WHERE email = @email";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(ConnectionString))
+                {
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@email", email);
+
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        return result.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return null;
+        }
     }
 }

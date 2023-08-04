@@ -7,10 +7,12 @@ namespace Hotel
     public partial class Rooms : Form
     {
         private List<(string RoomId, string RoomInfo)> availableRooms; // Declare at class level
+        private string username; // Add a field to store the username
 
-        public Rooms()
+        public Rooms(string username)
         {
             InitializeComponent();
+            this.username = username;
         }
 
         // Find available rooms
@@ -38,6 +40,10 @@ namespace Hotel
                 // Handle the case when no available rooms are found
                 MessageBox.Show("No rooms are available for the selected dates.");
             }
+
+            // TEAST
+            Console.WriteLine(username);
+            // TEAST
         }
 
         // Handle the DoubleClick event of the ListBox

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hotel
@@ -13,6 +6,8 @@ namespace Hotel
     public partial class Login : Form
     {
         private Data data = new Data();
+        private string loggedInUsername; // Store the logged-in username
+
         public Login()
         {
             InitializeComponent();
@@ -25,6 +20,7 @@ namespace Hotel
             createAccountForm.Show();
             this.Hide();
         }
+
         public void ShowLoginForm()
         {
             this.Show();
@@ -40,9 +36,12 @@ namespace Hotel
 
             if (emailExists)
             {
+                // Get the username associated with the input email
+                loggedInUsername = data.GetUsernameByEmail(input_email);
+
                 // Proceed with further actions since the email exists in the database
-                MessageBox.Show($"Logged in as{input_email}");
-                Rooms RoomsForm = new Rooms();
+                MessageBox.Show($"Logged in as {loggedInUsername}");
+                Rooms RoomsForm = new Rooms(loggedInUsername); // Pass the username to the Rooms form
                 RoomsForm.Show();
                 this.Hide();
             }
