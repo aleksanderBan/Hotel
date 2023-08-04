@@ -59,8 +59,6 @@ namespace Hotel
                     // For example, you can open a new form or perform any other actions here.
                 }
             }
-
         }
     }
-
 }
