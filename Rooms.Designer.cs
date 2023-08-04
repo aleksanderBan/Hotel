@@ -109,6 +109,7 @@
             this.availableRooms_list.Name = "availableRooms_list";
             this.availableRooms_list.Size = new System.Drawing.Size(548, 374);
             this.availableRooms_list.TabIndex = 7;
+            this.availableRooms_list.SelectedIndexChanged += new System.EventHandler(this.availableRooms_list_SelectedIndexChanged);
             // 
             // Rooms
             // 
