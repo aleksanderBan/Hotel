@@ -165,5 +165,31 @@ namespace Hotel
 
             return null;
         }
+
+        //Booked room insertion into the DB
+        public void BookedRoomDB(string username, string arrivalDate, string departureDate, string roomId)
+        {
+            string query = "INSERT INTO booking (name, doa, dol, roomid) VALUES (@name, @doa, @dol, @roomid)";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(ConnectionString))
+                {
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@name", username);
+                    command.Parameters.AddWithValue("@doa", DateTime.Parse(arrivalDate));
+                    command.Parameters.AddWithValue("@dol", DateTime.Parse(departureDate));
+                    command.Parameters.AddWithValue("@roomid", roomId);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
     }
 }

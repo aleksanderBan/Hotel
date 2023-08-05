@@ -8,6 +8,7 @@ namespace Hotel
     {
         private List<(string RoomId, string RoomInfo)> availableRooms; // Declare at class level
         private string username; // Add a field to store the username
+        private Data data = new Data();
 
         public Rooms(string username)
         {
@@ -42,7 +43,7 @@ namespace Hotel
             }
 
             // TEAST
-            Console.WriteLine(username);
+            Console.WriteLine($"YIPEEEE {username}");
             // TEAST
         }
 
@@ -61,8 +62,15 @@ namespace Hotel
                 // If the user confirms, proceed with further actions
                 if (result == DialogResult.Yes)
                 {
-                    // TODO: Implement the actions you want to perform when the user proceeds with the selected room
-                    // For example, you can open a new form or perform any other actions here.
+                    // Get the date of arrival and date of departure from the input fields
+                    string arrivalDateStr = arrivalDate_text.Text;
+                    string departureDateStr = departDate_text.Text;
+
+                    // Perform database insertion for booking details
+                    data.BookedRoomDB(username, arrivalDateStr, departureDateStr, selectedRoom.RoomId);
+
+                    // Show a success message or perform any other actions you need
+                    MessageBox.Show($"Booking for Room ID: {selectedRoom.RoomId} is successful!");
                 }
             }
         }
