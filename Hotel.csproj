@@ -82,7 +82,7 @@
     <Compile Include="CreateAccount.Designer.cs">
       <DependentUpon>CreateAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data.cs" />
+    <Compile Include="MyHotelDb.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

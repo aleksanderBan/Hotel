@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Remoting;
 using MySqlConnector;
 
 namespace Hotel
@@ -167,7 +168,7 @@ namespace Hotel
         }
 
         //Booked room insertion into the DB
-        public void BookedRoomDB(string username, string arrivalDate, string departureDate, string roomId)
+        public bool BookedRoomDB(string username, string arrivalDate, string departureDate, string roomId)
         {
             string query = "INSERT INTO booking (name, doa, dol, roomid) VALUES (@name, @doa, @dol, @roomid)";
 
@@ -182,13 +183,15 @@ namespace Hotel
                     command.Parameters.AddWithValue("@roomid", roomId);
 
                     connection.Open();
-                    command.ExecuteNonQuery();
+                    if(command.ExecuteNonQuery()>0) return true;
+
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+            return false;
         }
 
     }

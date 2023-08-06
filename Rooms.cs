@@ -67,10 +67,15 @@ namespace Hotel
                     string departureDateStr = departDate_text.Text;
 
                     // Perform database insertion for booking details
-                    data.BookedRoomDB(username, arrivalDateStr, departureDateStr, selectedRoom.RoomId);
+                    if (data.BookedRoomDB(username, arrivalDateStr, departureDateStr, selectedRoom.RoomId))
+                    {
 
-                    // Show a success message or perform any other actions you need
-                    MessageBox.Show($"Booking for Room ID: {selectedRoom.RoomId} is successful!");
+                        // Show a success message or perform any other actions you need
+                        MessageBox.Show($"Booking for Room ID: {selectedRoom.RoomId} is successful!");
+                    }
+                    else {
+                        MessageBox.Show($"Booking for Room ID: {selectedRoom.RoomId} is false!");
+                    }
                 }
             }
         }

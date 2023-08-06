@@ -115,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1192, 708);
+            this.ClientSize = new System.Drawing.Size(1422, 837);
             this.Controls.Add(this.availableRooms_list);
             this.Controls.Add(this.findRooms_btn);
             this.Controls.Add(this.comboBox1);
