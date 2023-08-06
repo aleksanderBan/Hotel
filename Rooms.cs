@@ -8,7 +8,7 @@ namespace Hotel
     {
         private List<(string RoomId, string RoomInfo)> availableRooms; // Declare at class level
         private string username; // Add a field to store the username
-        private MyHotelDb data = new MyHotelDb();
+        private Data data = new Data();
 
         public Rooms(string username)
         {
@@ -23,7 +23,7 @@ namespace Hotel
             string endDatestr = departDate_text.Text;
 
             // Perform the database query to find available rooms
-            MyHotelDb data = new MyHotelDb();
+            Data data = new Data();
             availableRooms = data.AvailableRoomsDB(startDatestr, endDatestr);
 
             if (availableRooms.Count > 0)

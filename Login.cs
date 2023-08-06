@@ -5,7 +5,7 @@ namespace Hotel
 {
     public partial class Login : Form
     {
-        private MyHotelDb data = new MyHotelDb();
+        private Data data = new Data();
         private string loggedInUsername; // Store the logged-in username
 
         public Login()

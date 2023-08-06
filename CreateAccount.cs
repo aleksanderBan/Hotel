@@ -15,7 +15,7 @@ namespace Hotel
 {
     public partial class CreateAccount : Form
     {
-        private MyHotelDb data = new MyHotelDb();
+        private Data data = new Data();
 
         private Login login; // A variable to store the reference of Form1
 
