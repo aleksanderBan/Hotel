@@ -22,9 +22,12 @@ namespace Hotel
             string startDatestr = arrivalDate_text.Text;
             string endDatestr = departDate_text.Text;
 
+            // Get the selected room type from the combo box
+            string selectedRoomType = roomType_combo.SelectedItem?.ToString();
+
             // Perform the database query to find available rooms
             Data data = new Data();
-            availableRooms = data.DBFindRooms(startDatestr, endDatestr);
+            availableRooms = data.DBFindRooms(startDatestr, endDatestr, selectedRoomType);
 
             if (availableRooms.Count > 0)
             {
@@ -47,7 +50,7 @@ namespace Hotel
             // TEAST
         }
 
-        // Handle the DoubleClick event of the ListBox
+        //Room booking
         private void availableRooms_list_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Check if an item is selected
@@ -77,6 +80,11 @@ namespace Hotel
                     }
                 }
             }
+        }
+
+        private void roomType_combo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            roomType_combo.SelectedIndex = 0;
         }
     }
 }

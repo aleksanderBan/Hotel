@@ -33,7 +33,7 @@
             this.arrivalDate_text = new System.Windows.Forms.TextBox();
             this.departDate_text = new System.Windows.Forms.TextBox();
             this.room_label = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.roomType_combo = new System.Windows.Forms.ComboBox();
             this.findRooms_btn = new System.Windows.Forms.Button();
             this.availableRooms_list = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
@@ -79,17 +79,19 @@
             this.room_label.TabIndex = 4;
             this.room_label.Text = "Type of room";
             // 
-            // comboBox1
+            // roomType_combo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.roomType_combo.BackColor = System.Drawing.SystemColors.Window;
+            this.roomType_combo.FormattingEnabled = true;
+            this.roomType_combo.Items.AddRange(new object[] {
             "Single",
             "Double",
             "Suite"});
-            this.comboBox1.Location = new System.Drawing.Point(779, 141);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(226, 45);
-            this.comboBox1.TabIndex = 5;
+            this.roomType_combo.Location = new System.Drawing.Point(779, 141);
+            this.roomType_combo.Name = "roomType_combo";
+            this.roomType_combo.Size = new System.Drawing.Size(226, 45);
+            this.roomType_combo.TabIndex = 5;
+            this.roomType_combo.SelectedIndexChanged += new System.EventHandler(this.roomType_combo_SelectedIndexChanged);
             // 
             // findRooms_btn
             // 
@@ -118,7 +120,7 @@
             this.ClientSize = new System.Drawing.Size(1422, 837);
             this.Controls.Add(this.availableRooms_list);
             this.Controls.Add(this.findRooms_btn);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.roomType_combo);
             this.Controls.Add(this.room_label);
             this.Controls.Add(this.departDate_text);
             this.Controls.Add(this.arrivalDate_text);
@@ -138,7 +140,7 @@
         private System.Windows.Forms.TextBox arrivalDate_text;
         private System.Windows.Forms.TextBox departDate_text;
         private System.Windows.Forms.Label room_label;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox roomType_combo;
         private System.Windows.Forms.Button findRooms_btn;
         private System.Windows.Forms.ListBox availableRooms_list;
     }

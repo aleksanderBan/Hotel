@@ -102,7 +102,7 @@ namespace Hotel
         }
 
         //Find available rooms in the DB
-        public List<(string RoomID, string RoomInfo)> DBFindRooms(string startDateStr, string endDateStr)
+        public List<(string RoomID, string RoomInfo)> DBFindRooms(string startDateStr, string endDateStr, string selectedRoomType)
         {
             List<(string RoomId, string RoomInfo)> availableRooms = new List<(string, string)>();
 
@@ -116,9 +116,10 @@ namespace Hotel
                     connection.Open();
                     foreach (DateTime date in allDatesInRange)
                     {
-                        string query = "SELECT id, type, date, info FROM rooms WHERE date = @date";
+                        string query = "SELECT id, type, date, info FROM rooms WHERE date = @date AND type = @roomType" ;
                         MySqlCommand command = new MySqlCommand(query, connection);
                         command.Parameters.AddWithValue("@date", date);
+                        command.Parameters.AddWithValue("@roomType", selectedRoomType);
 
                         using (var reader = command.ExecuteReader())
                         {
