@@ -109,6 +109,7 @@
             this.availableRooms_list.ItemHeight = 37;
             this.availableRooms_list.Location = new System.Drawing.Point(623, 275);
             this.availableRooms_list.Name = "availableRooms_list";
+            this.availableRooms_list.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.availableRooms_list.Size = new System.Drawing.Size(548, 374);
             this.availableRooms_list.TabIndex = 7;
             this.availableRooms_list.SelectedIndexChanged += new System.EventHandler(this.availableRooms_list_SelectedIndexChanged);
@@ -127,7 +128,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1422, 837);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1455, 832);
             this.Controls.Add(this.bookingHistory_btn);
             this.Controls.Add(this.availableRooms_list);
             this.Controls.Add(this.findRooms_btn);

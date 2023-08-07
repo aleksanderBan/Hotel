@@ -197,6 +197,7 @@ namespace Hotel
             return false;
         }
 
+        //Booking history
         public List<string> DBGetBookingHistory(string username)
         {
             List<string> bookingHistory = new List<string>();

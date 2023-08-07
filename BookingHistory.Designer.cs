@@ -35,9 +35,10 @@
             // 
             this.bookingHistory_list.FormattingEnabled = true;
             this.bookingHistory_list.ItemHeight = 37;
-            this.bookingHistory_list.Location = new System.Drawing.Point(360, 92);
+            this.bookingHistory_list.Location = new System.Drawing.Point(306, 86);
             this.bookingHistory_list.Name = "bookingHistory_list";
-            this.bookingHistory_list.Size = new System.Drawing.Size(386, 263);
+            this.bookingHistory_list.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.bookingHistory_list.Size = new System.Drawing.Size(504, 374);
             this.bookingHistory_list.TabIndex = 0;
             // 
             // BookingHistory
