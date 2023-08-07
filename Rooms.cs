@@ -24,7 +24,7 @@ namespace Hotel
 
             // Perform the database query to find available rooms
             Data data = new Data();
-            availableRooms = data.AvailableRoomsDB(startDatestr, endDatestr);
+            availableRooms = data.DBFindRooms(startDatestr, endDatestr);
 
             if (availableRooms.Count > 0)
             {
@@ -67,14 +67,13 @@ namespace Hotel
                     string departureDateStr = departDate_text.Text;
 
                     // Perform database insertion for booking details
-                    if (data.BookedRoomDB(username, arrivalDateStr, departureDateStr, selectedRoom.RoomId))
+                    if (data.DBInsertBooking(username, arrivalDateStr, departureDateStr, selectedRoom.RoomId))
                     {
-
                         // Show a success message or perform any other actions you need
                         MessageBox.Show($"Booking for Room ID: {selectedRoom.RoomId} is successful!");
                     }
                     else {
-                        MessageBox.Show($"Booking for Room ID: {selectedRoom.RoomId} is false!");
+                        MessageBox.Show($"Booking for Room ID: {selectedRoom.RoomId} failed!");
                     }
                 }
             }

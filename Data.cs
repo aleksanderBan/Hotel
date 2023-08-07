@@ -33,8 +33,10 @@ namespace Hotel
             }
         }
 
+        //Database operations
+
         //Insert an account into the database
-        public int AccountDB(Account account)
+        public int DBInsertAccount(Account account)
         {
             string query = $"INSERT INTO account (username, email) " +
                    $"VALUES ('{account.Username}', '{account.Email}');";
@@ -61,7 +63,7 @@ namespace Hotel
         }
 
         //Check if email is in the database from the Login form
-        public bool EmailDB(string email)
+        public bool DBCheckEmail(string email)
         {
             string query = $"SELECT COUNT(*) FROM account WHERE email = @email";
 
@@ -86,8 +88,21 @@ namespace Hotel
             return false;
         }
 
+        //Find dates in between input dates
+        private List<DateTime> GetDatesInRange(DateTime startDate, DateTime endDate)
+        {
+            List<DateTime> allDatesInRange = new List<DateTime>();
+            DateTime currentDate = startDate;
+            while (currentDate <= endDate)
+            {
+                allDatesInRange.Add(currentDate);
+                currentDate = currentDate.AddDays(1);
+            }
+            return allDatesInRange;
+        }
+
         //Find available rooms in the DB
-        public List<(string RoomID, string RoomInfo)> AvailableRoomsDB(string startDateStr, string endDateStr)
+        public List<(string RoomID, string RoomInfo)> DBFindRooms(string startDateStr, string endDateStr)
         {
             List<(string RoomId, string RoomInfo)> availableRooms = new List<(string, string)>();
 
@@ -110,8 +125,8 @@ namespace Hotel
                             while (reader.Read())
                             {
                                 string roomId = reader["id"].ToString();
-                                string roomType = reader["type"].ToString();
-                                string roomDate = reader["date"].ToString();
+                                //string roomType = reader["type"].ToString();
+                                //string roomDate = reader["date"].ToString();
                                 string roomInfo = reader["info"].ToString();
                                 availableRooms.Add((roomId, roomInfo));
                             }
@@ -127,20 +142,8 @@ namespace Hotel
             return availableRooms;
         }
 
-        private List<DateTime> GetDatesInRange(DateTime startDate, DateTime endDate)
-        {
-            List<DateTime> allDatesInRange = new List<DateTime>();
-            DateTime currentDate = startDate;
-            while (currentDate <= endDate)
-            {
-                allDatesInRange.Add(currentDate);
-                currentDate = currentDate.AddDays(1);
-            }
-            return allDatesInRange;
-        }
-
         //Get username from email from the DB
-        public string GetUsernameByEmail(string email)
+        public string DBGetAccountUsername(string email)
         {
             string query = "SELECT username FROM account WHERE email = @email";
 
@@ -168,7 +171,7 @@ namespace Hotel
         }
 
         //Booked room insertion into the DB
-        public bool BookedRoomDB(string username, string arrivalDate, string departureDate, string roomId)
+        public bool DBInsertBooking(string username, string arrivalDate, string departureDate, string roomId)
         {
             string query = "INSERT INTO booking (name, doa, dol, roomid) VALUES (@name, @doa, @dol, @roomid)";
 
@@ -184,7 +187,6 @@ namespace Hotel
 
                     connection.Open();
                     if(command.ExecuteNonQuery()>0) return true;
-
                 }
             }
             catch (Exception ex)
@@ -193,6 +195,5 @@ namespace Hotel
             }
             return false;
         }
-
     }
 }

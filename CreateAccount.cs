@@ -32,7 +32,7 @@ namespace Hotel
 
             Account account = new Account(username, email);
 
-            int accountId = data.AccountDB(account);
+            int accountId = data.DBInsertAccount(account);
 
             if (accountId != -1)
             {

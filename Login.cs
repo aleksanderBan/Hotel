@@ -32,12 +32,12 @@ namespace Hotel
             string input_email = email_textbox.Text;
 
             // Check if the input email exists in the database
-            bool emailExists = data.EmailDB(input_email);
+            bool emailExists = data.DBCheckEmail(input_email);
 
             if (emailExists)
             {
                 // Get the username associated with the input email
-                loggedInUsername = data.GetUsernameByEmail(input_email);
+                loggedInUsername = data.DBGetAccountUsername(input_email);
 
                 // Proceed with further actions since the email exists in the database
                 MessageBox.Show($"Logged in as {loggedInUsername}");
