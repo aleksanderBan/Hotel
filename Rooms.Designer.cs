@@ -36,6 +36,7 @@
             this.roomType_combo = new System.Windows.Forms.ComboBox();
             this.findRooms_btn = new System.Windows.Forms.Button();
             this.availableRooms_list = new System.Windows.Forms.ListBox();
+            this.bookingHistory_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // arrivalDate_label
@@ -106,17 +107,28 @@
             // 
             this.availableRooms_list.FormattingEnabled = true;
             this.availableRooms_list.ItemHeight = 37;
-            this.availableRooms_list.Location = new System.Drawing.Point(583, 334);
+            this.availableRooms_list.Location = new System.Drawing.Point(623, 275);
             this.availableRooms_list.Name = "availableRooms_list";
             this.availableRooms_list.Size = new System.Drawing.Size(548, 374);
             this.availableRooms_list.TabIndex = 7;
             this.availableRooms_list.SelectedIndexChanged += new System.EventHandler(this.availableRooms_list_SelectedIndexChanged);
+            // 
+            // bookingHistory_btn
+            // 
+            this.bookingHistory_btn.Location = new System.Drawing.Point(804, 697);
+            this.bookingHistory_btn.Name = "bookingHistory_btn";
+            this.bookingHistory_btn.Size = new System.Drawing.Size(261, 80);
+            this.bookingHistory_btn.TabIndex = 8;
+            this.bookingHistory_btn.Text = "History";
+            this.bookingHistory_btn.UseVisualStyleBackColor = true;
+            this.bookingHistory_btn.Click += new System.EventHandler(this.bookingHistory_btn_Click);
             // 
             // Rooms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1422, 837);
+            this.Controls.Add(this.bookingHistory_btn);
             this.Controls.Add(this.availableRooms_list);
             this.Controls.Add(this.findRooms_btn);
             this.Controls.Add(this.roomType_combo);
@@ -142,5 +154,6 @@
         private System.Windows.Forms.ComboBox roomType_combo;
         private System.Windows.Forms.Button findRooms_btn;
         private System.Windows.Forms.ListBox availableRooms_list;
+        private System.Windows.Forms.Button bookingHistory_btn;
     }
 }

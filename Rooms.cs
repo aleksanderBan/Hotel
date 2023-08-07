@@ -81,5 +81,16 @@ namespace Hotel
                 }
             }
         }
+
+        //Get booking history
+        private void bookingHistory_btn_Click(object sender, EventArgs e)
+        {
+            // Get the user's booking history
+            List<string> bookingHistory = data.DBGetBookingHistory(username);
+
+            // Open the BookingHistoryForm and pass the booking history
+            BookingHistory historyForm = new BookingHistory(bookingHistory);
+            historyForm.ShowDialog();
+        }
     }
 }

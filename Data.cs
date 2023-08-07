@@ -196,5 +196,40 @@ namespace Hotel
             }
             return false;
         }
+
+        public List<string> DBGetBookingHistory(string username)
+        {
+            List<string> bookingHistory = new List<string>();
+
+            string query = "SELECT id, doa, dol FROM booking WHERE name = @username";
+
+            using (MySqlConnection connection = new MySqlConnection(ConnectionString))
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@username", username);
+
+                try
+                {
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string bookingId = reader["id"].ToString();
+                            string arrivalDate = reader["doa"].ToString();
+                            string departureDate = reader["dol"].ToString();
+                            string bookingDetails = $"Booking ID: {bookingId}, Arrival: {arrivalDate}, Departure: {departureDate}";
+                            bookingHistory.Add(bookingDetails);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            return bookingHistory;
+        }
     }
 }
