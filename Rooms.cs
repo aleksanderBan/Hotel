@@ -81,10 +81,5 @@ namespace Hotel
                 }
             }
         }
-
-        private void roomType_combo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            roomType_combo.SelectedIndex = 0;
-        }
     }
 }

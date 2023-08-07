@@ -91,7 +91,6 @@
             this.roomType_combo.Name = "roomType_combo";
             this.roomType_combo.Size = new System.Drawing.Size(226, 45);
             this.roomType_combo.TabIndex = 5;
-            this.roomType_combo.SelectedIndexChanged += new System.EventHandler(this.roomType_combo_SelectedIndexChanged);
             // 
             // findRooms_btn
             // 
