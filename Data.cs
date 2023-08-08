@@ -232,5 +232,31 @@ namespace Hotel
 
             return bookingHistory;
         }
+
+        //Remove booking
+        public bool DBRemoveBooking(int bookingId)
+        {
+            string query = "DELETE FROM booking WHERE id = @bookingId";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(ConnectionString))
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@bookingId", bookingId);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    return rowsAffected > 0; // Return true if rows were affected (booking removed)
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false; // Return false if an error occurred
+            }
+        }
+
     }
 }
