@@ -24,7 +24,7 @@ namespace Hotel
             bookingHistory_list.Items.AddRange(bookingHistory.ToArray());
         }
 
-        private void removeBooking_btn_Click(object sender, EventArgs e)
+        private void RemoveBooking_btn_Click(object sender, EventArgs e)
         {
             // Check if items are checked in the booking history checked list box
             if (bookingHistory_list.CheckedItems.Count > 0)
@@ -73,7 +73,6 @@ namespace Hotel
                 MessageBox.Show("Please select bookings from the list to remove.");
             }
         }
-
 
         // Method to extract booking ID from booking details string
         private int ExtractBookingId(string bookingDetails)

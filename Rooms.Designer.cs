@@ -101,7 +101,7 @@
             this.findRooms_btn.TabIndex = 6;
             this.findRooms_btn.Text = "Find available rooms";
             this.findRooms_btn.UseVisualStyleBackColor = true;
-            this.findRooms_btn.Click += new System.EventHandler(this.findRooms_btn_Click);
+            this.findRooms_btn.Click += new System.EventHandler(this.FindRooms_btn_Click);
             // 
             // availableRooms_list
             // 
@@ -112,7 +112,7 @@
             this.availableRooms_list.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.availableRooms_list.Size = new System.Drawing.Size(548, 374);
             this.availableRooms_list.TabIndex = 7;
-            this.availableRooms_list.SelectedIndexChanged += new System.EventHandler(this.availableRooms_list_SelectedIndexChanged);
+            this.availableRooms_list.SelectedIndexChanged += new System.EventHandler(this.AvailableRooms_list_SelectedIndexChanged);
             // 
             // bookingHistory_btn
             // 
@@ -122,7 +122,7 @@
             this.bookingHistory_btn.TabIndex = 8;
             this.bookingHistory_btn.Text = "History";
             this.bookingHistory_btn.UseVisualStyleBackColor = true;
-            this.bookingHistory_btn.Click += new System.EventHandler(this.bookingHistory_btn_Click);
+            this.bookingHistory_btn.Click += new System.EventHandler(this.BookingHistory_btn_Click);
             // 
             // Rooms
             // 

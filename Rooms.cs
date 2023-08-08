@@ -17,7 +17,7 @@ namespace Hotel
         }
 
         // Find available rooms
-        private void findRooms_btn_Click(object sender, EventArgs e)
+        private void FindRooms_btn_Click(object sender, EventArgs e)
         {
             string startDatestr = arrivalDate_text.Text;
             string endDatestr = departDate_text.Text;
@@ -51,7 +51,7 @@ namespace Hotel
         }
 
         //Room booking
-        private void availableRooms_list_SelectedIndexChanged(object sender, EventArgs e)
+        private void AvailableRooms_list_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Check if an item is selected
             if (availableRooms_list.SelectedIndex >= 0)
@@ -83,7 +83,7 @@ namespace Hotel
         }
 
         //Get booking history
-        private void bookingHistory_btn_Click(object sender, EventArgs e)
+        private void BookingHistory_btn_Click(object sender, EventArgs e)
         {
             // Get the user's booking history
             List<string> bookingHistory = data.DBGetBookingHistory(username);

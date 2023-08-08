@@ -48,7 +48,7 @@
             this.removeBooking_btn.TabIndex = 2;
             this.removeBooking_btn.Text = "button1";
             this.removeBooking_btn.UseVisualStyleBackColor = true;
-            this.removeBooking_btn.Click += new System.EventHandler(this.removeBooking_btn_Click);
+            this.removeBooking_btn.Click += new System.EventHandler(this.RemoveBooking_btn_Click);
             // 
             // BookingHistory
             // 

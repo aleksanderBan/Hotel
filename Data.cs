@@ -180,21 +180,25 @@ namespace Hotel
             {
                 using (MySqlConnection connection = new MySqlConnection(ConnectionString))
                 {
-                    MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@name", username);
-                    command.Parameters.AddWithValue("@doa", DateTime.Parse(arrivalDate));
-                    command.Parameters.AddWithValue("@dol", DateTime.Parse(departureDate));
-                    command.Parameters.AddWithValue("@roomid", roomId);
-
                     connection.Open();
-                    if(command.ExecuteNonQuery()>0) return true;
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@name", username);
+                        command.Parameters.AddWithValue("@doa", DateTime.Parse(arrivalDate));
+                        command.Parameters.AddWithValue("@dol", DateTime.Parse(departureDate));
+                        command.Parameters.AddWithValue("@roomid", roomId);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        return rowsAffected > 0;
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                return false;
             }
-            return false;
         }
 
         //Booking history
@@ -257,6 +261,5 @@ namespace Hotel
                 return false; // Return false if an error occurred
             }
         }
-
     }
 }
