@@ -233,7 +233,7 @@ namespace Hotel
             return bookingHistory;
         }
 
-        //Remove booking
+        //Remove bookings
         public bool DBRemoveBooking(int bookingId)
         {
             string query = "DELETE FROM booking WHERE id = @bookingId";
