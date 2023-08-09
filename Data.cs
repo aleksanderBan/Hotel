@@ -261,5 +261,129 @@ namespace Hotel
                 return false; // Return false if an error occurred
             }
         }
+
+        //Get information about rooms
+        public List<string> DBGetRoomInformation()
+        {
+            List<string> roomInfoList = new List<string>();
+
+            string query = "SELECT id, type, date FROM rooms";
+
+            using (MySqlConnection connection = new MySqlConnection(ConnectionString))
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string roomId = reader["id"].ToString();
+                            string roomType = reader["type"].ToString();
+                            string roomDate = reader["date"].ToString();
+                            string roomInfo = $"ID: {roomId}, Type: {roomType}, Date: {roomDate}";
+                            roomInfoList.Add(roomInfo);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            return roomInfoList;
+        }
+
+        //Get current room date
+        public string DBGetCurrentDateForRoom(int roomId)
+        {
+            string query = "SELECT date FROM rooms WHERE id = @roomId";
+
+            using (MySqlConnection connection = new MySqlConnection(ConnectionString))
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@roomId", roomId);
+
+                try
+                {
+                    connection.Open();
+                    var currentDate = command.ExecuteScalar();
+                    if (currentDate != null)
+                    {
+                        DateTime date = Convert.ToDateTime(currentDate);
+                        return date.ToString("yyyy-MM-dd");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            return "Could not retrieve current date."; // Return a default value if date retrieval fails
+        }
+
+        //Update room date
+        public bool DBUpdateRoomDate(int roomId, string newDate)
+        {
+            string query = "UPDATE rooms SET date = @newDate WHERE id = @roomId";
+
+            using (MySqlConnection connection = new MySqlConnection(ConnectionString))
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@newDate", newDate);
+                command.Parameters.AddWithValue("@roomId", roomId);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return false;
+                }
+            }
+        }
+
+        //Get bookings for Admin
+        public List<string> DBGetBookingsAdmin()
+        {
+            List<string> bookingsAdmin = new List<string>();
+
+            string query = "SELECT id, doa, dol FROM booking";
+
+            using (MySqlConnection connection = new MySqlConnection(ConnectionString))
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                
+                try
+                {
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string bookingId = reader["id"].ToString();
+                            string arrivalDate = reader["doa"].ToString();
+                            string departureDate = reader["dol"].ToString();
+                            string bookingDetails = $"Booking ID: {bookingId}, Arrival: {arrivalDate}, Departure: {departureDate}";
+                            bookingsAdmin.Add(bookingDetails);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            return bookingsAdmin;
+        }
     }
 }

@@ -7,6 +7,7 @@ namespace Hotel
     {
         private Data data = new Data();
         private string loggedInUsername; // Store the logged-in username
+        string adminPswd = "admin";
 
         public Login()
         {
@@ -14,7 +15,7 @@ namespace Hotel
         }
 
         //account functionality
-        private void createAccount_btn_Click(object sender, EventArgs e)
+        private void CreateAccount_btn_Click(object sender, EventArgs e)
         {
             CreateAccount createAccountForm = new CreateAccount(this);
             createAccountForm.Show();
@@ -27,7 +28,7 @@ namespace Hotel
         }
 
         //login functionality
-        private void login_btn_Click(object sender, EventArgs e)
+        private void Login_btn_Click(object sender, EventArgs e)
         {
             string input_email = email_textbox.Text;
 
@@ -48,6 +49,22 @@ namespace Hotel
             else
             {
                 MessageBox.Show("Email does not exist in the database.");
+            }
+        }
+
+        //Admin login
+        private void AdminLogin_btn_Click(object sender, EventArgs e)
+        {
+            if (adminPswd_textbox.Text == adminPswd)
+            {
+                MessageBox.Show("Logged in as system admin.");
+                AdminPanel AdminForm = new AdminPanel();
+                AdminForm.Show();
+                this.Hide();
+            }
+            else if (adminPswd_textbox.Text != adminPswd)
+            {
+                MessageBox.Show("Incorrect password.");
             }
         }
     }
