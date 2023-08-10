@@ -109,28 +109,22 @@ namespace Hotel
             DateTime startDate, endDate;
             if (DateTime.TryParse(startDateStr, out startDate) && DateTime.TryParse(endDateStr, out endDate))
             {
-                List<DateTime> allDatesInRange = GetDatesInRange(startDate, endDate);
-
                 using (MySqlConnection connection = new MySqlConnection(ConnectionString))
                 {
                     connection.Open();
-                    foreach (DateTime date in allDatesInRange)
-                    {
-                        string query = "SELECT id, type, date, info FROM rooms WHERE date = @date AND type = @roomType" ;
-                        MySqlCommand command = new MySqlCommand(query, connection);
-                        command.Parameters.AddWithValue("@date", date);
-                        command.Parameters.AddWithValue("@roomType", selectedRoomType);
+                    string query = "SELECT id, type, datefrom, dateuntil, info FROM rooms WHERE (@startDate BETWEEN datefrom AND dateuntil OR @endDate BETWEEN datefrom AND dateuntil OR (datefrom BETWEEN @startDate AND @endDate AND dateuntil BETWEEN @startDate AND @endDate)) AND type = @roomType";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@startDate", startDate);
+                    command.Parameters.AddWithValue("@endDate", endDate);
+                    command.Parameters.AddWithValue("@roomType", selectedRoomType);
 
-                        using (var reader = command.ExecuteReader())
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
                         {
-                            while (reader.Read())
-                            {
-                                string roomId = reader["id"].ToString();
-                                //string roomType = reader["type"].ToString();
-                                //string roomDate = reader["date"].ToString();
-                                string roomInfo = reader["info"].ToString();
-                                availableRooms.Add((roomId, roomInfo));
-                            }
+                            string roomId = reader["id"].ToString();
+                            string roomInfo = reader["info"].ToString();
+                            availableRooms.Add((roomId, roomInfo));
                         }
                     }
                 }
@@ -267,7 +261,7 @@ namespace Hotel
         {
             List<string> roomInfoList = new List<string>();
 
-            string query = "SELECT id, type, date FROM rooms";
+            string query = "SELECT id, type, datefrom, dateuntil FROM rooms";
 
             using (MySqlConnection connection = new MySqlConnection(ConnectionString))
             {
@@ -282,8 +276,11 @@ namespace Hotel
                         {
                             string roomId = reader["id"].ToString();
                             string roomType = reader["type"].ToString();
-                            string roomDate = reader["date"].ToString();
-                            string roomInfo = $"ID: {roomId}, Type: {roomType}, Date: {roomDate}";
+                            string dateFrom = reader["datefrom"].ToString();
+                            string dateUntil = reader["dateuntil"].ToString();
+
+                            // Construct the room information string with "datefrom" and "dateuntil" values
+                            string roomInfo = $"ID: {roomId}, Type: {roomType}, Available From: {dateFrom} Until: {dateUntil}";
                             roomInfoList.Add(roomInfo);
                         }
                     }
@@ -300,7 +297,7 @@ namespace Hotel
         //Get current room date
         public string DBGetCurrentDateForRoom(int roomId)
         {
-            string query = "SELECT date FROM rooms WHERE id = @roomId";
+            string query = "SELECT datefrom FROM rooms WHERE id = @roomId";
 
             using (MySqlConnection connection = new MySqlConnection(ConnectionString))
             {
@@ -311,7 +308,7 @@ namespace Hotel
                 {
                     connection.Open();
                     var currentDate = command.ExecuteScalar();
-                    if (currentDate != null)
+                    if (currentDate != null && currentDate != DBNull.Value)
                     {
                         DateTime date = Convert.ToDateTime(currentDate);
                         return date.ToString("yyyy-MM-dd");
@@ -323,18 +320,19 @@ namespace Hotel
                 }
             }
 
-            return "Could not retrieve current date."; // Return a default value if date retrieval fails
+            return "N/A";
         }
 
         //Update room date
-        public bool DBUpdateRoomDate(int roomId, string newDate)
+        public bool DBUpdateRoomDate(int roomId, string newDateFrom, string newDateUntil)
         {
-            string query = "UPDATE rooms SET date = @newDate WHERE id = @roomId";
+            string query = "UPDATE rooms SET datefrom = @newDateFrom, dateuntil = @newDateUntil WHERE id = @roomId";
 
             using (MySqlConnection connection = new MySqlConnection(ConnectionString))
             {
                 MySqlCommand command = new MySqlCommand(query, connection);
-                command.Parameters.AddWithValue("@newDate", newDate);
+                command.Parameters.AddWithValue("@newDateFrom", newDateFrom);
+                command.Parameters.AddWithValue("@newDateUntil", newDateUntil);
                 command.Parameters.AddWithValue("@roomId", roomId);
 
                 try
@@ -385,5 +383,62 @@ namespace Hotel
 
             return bookingsAdmin;
         }
+
+        //Dates from and until
+        public string DBGetDateFromForRoom(int roomId)
+        {
+            string query = "SELECT datefrom FROM rooms WHERE id = @roomId";
+
+            using (MySqlConnection connection = new MySqlConnection(ConnectionString))
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@roomId", roomId);
+
+                try
+                {
+                    connection.Open();
+                    var dateFrom = command.ExecuteScalar();
+                    if (dateFrom != null && dateFrom != DBNull.Value)
+                    {
+                        DateTime fromDate = Convert.ToDateTime(dateFrom);
+                        return fromDate.ToString("yyyy-MM-dd");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            return "N/A";
+        }
+        public string DBGetDateUntilForRoom(int roomId)
+        {
+            string query = "SELECT dateuntil FROM rooms WHERE id = @roomId";
+
+            using (MySqlConnection connection = new MySqlConnection(ConnectionString))
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@roomId", roomId);
+
+                try
+                {
+                    connection.Open();
+                    var dateUntil = command.ExecuteScalar();
+                    if (dateUntil != null && dateUntil != DBNull.Value)
+                    {
+                        DateTime untilDate = Convert.ToDateTime(dateUntil);
+                        return untilDate.ToString("yyyy-MM-dd");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            return "N/A";
+        }
+
     }
 }
