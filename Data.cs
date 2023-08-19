@@ -440,5 +440,32 @@ namespace Hotel
             return "N/A";
         }
 
+        // Insert a room into the database
+        public bool DBAddRoomAdmin(string roomType, string dateFrom, string dateUntil, string roomInfo)
+        {
+            string query = "INSERT INTO rooms (type, datefrom, dateuntil, info) VALUES (@type, @dateFrom, @dateUntil, @info)";
+
+            using (MySqlConnection connection = new MySqlConnection(ConnectionString))
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@type", roomType);
+                command.Parameters.AddWithValue("@dateFrom", dateFrom);
+                command.Parameters.AddWithValue("@dateUntil", dateUntil);
+                command.Parameters.AddWithValue("@info", roomInfo);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return false;
+                }
+            }
+        }
+
     }
 }

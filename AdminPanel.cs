@@ -70,5 +70,30 @@ namespace Hotel
                 changeDateForm.ShowDialog();
             }
         }
+
+        private void addRoom_btn_Click(object sender, EventArgs e)
+        {
+            string roomType = roomType_combo.Text;
+            string dateFrom = dateFrom_textbox.Text;
+            string dateUntil = dateUntil_textbox.Text;
+            string roomInfo = roomInfo_textbox.Text;
+
+            bool success = data.DBAddRoomAdmin(roomType, dateFrom, dateUntil, roomInfo);
+            if (success)
+            {
+                MessageBox.Show($"{roomType} room added successfully.");
+
+                // Call the method to get room information from the database
+                List<string> roomInfoList = data.DBGetRoomInformation();
+
+                // Populate the ListBox with room information
+                roomInfo_list.Items.Clear();
+                roomInfo_list.Items.AddRange(roomInfoList.ToArray());
+            }
+            else
+            {
+                MessageBox.Show("Failed to add room.");
+            }
+        }
     }
 }
