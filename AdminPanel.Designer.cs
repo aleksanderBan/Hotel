@@ -39,6 +39,10 @@
             this.dateUntil_textbox = new System.Windows.Forms.TextBox();
             this.addRoom_btn = new System.Windows.Forms.Button();
             this.roomType_combo = new System.Windows.Forms.ComboBox();
+            this.roomType_label = new System.Windows.Forms.Label();
+            this.dateFrom_label = new System.Windows.Forms.Label();
+            this.dateUntil_label = new System.Windows.Forms.Label();
+            this.roomInfo_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bookingsOverwatch_list
@@ -99,21 +103,21 @@
             // 
             // dateFrom_textbox
             // 
-            this.dateFrom_textbox.Location = new System.Drawing.Point(1384, 233);
+            this.dateFrom_textbox.Location = new System.Drawing.Point(1384, 255);
             this.dateFrom_textbox.Name = "dateFrom_textbox";
             this.dateFrom_textbox.Size = new System.Drawing.Size(313, 44);
             this.dateFrom_textbox.TabIndex = 13;
             // 
             // roomInfo_textbox
             // 
-            this.roomInfo_textbox.Location = new System.Drawing.Point(1384, 524);
+            this.roomInfo_textbox.Location = new System.Drawing.Point(1384, 542);
             this.roomInfo_textbox.Name = "roomInfo_textbox";
             this.roomInfo_textbox.Size = new System.Drawing.Size(313, 44);
             this.roomInfo_textbox.TabIndex = 15;
             // 
             // dateUntil_textbox
             // 
-            this.dateUntil_textbox.Location = new System.Drawing.Point(1384, 376);
+            this.dateUntil_textbox.Location = new System.Drawing.Point(1384, 395);
             this.dateUntil_textbox.Name = "dateUntil_textbox";
             this.dateUntil_textbox.Size = new System.Drawing.Size(313, 44);
             this.dateUntil_textbox.TabIndex = 14;
@@ -135,10 +139,46 @@
             "Single",
             "Double",
             "Suite"});
-            this.roomType_combo.Location = new System.Drawing.Point(1384, 85);
+            this.roomType_combo.Location = new System.Drawing.Point(1384, 109);
             this.roomType_combo.Name = "roomType_combo";
             this.roomType_combo.Size = new System.Drawing.Size(313, 45);
             this.roomType_combo.TabIndex = 17;
+            // 
+            // roomType_label
+            // 
+            this.roomType_label.AutoSize = true;
+            this.roomType_label.Location = new System.Drawing.Point(1377, 46);
+            this.roomType_label.Name = "roomType_label";
+            this.roomType_label.Size = new System.Drawing.Size(170, 37);
+            this.roomType_label.TabIndex = 18;
+            this.roomType_label.Text = "Room type";
+            // 
+            // dateFrom_label
+            // 
+            this.dateFrom_label.AutoSize = true;
+            this.dateFrom_label.Location = new System.Drawing.Point(1384, 190);
+            this.dateFrom_label.Name = "dateFrom_label";
+            this.dateFrom_label.Size = new System.Drawing.Size(220, 37);
+            this.dateFrom_label.TabIndex = 19;
+            this.dateFrom_label.Text = "Available from";
+            // 
+            // dateUntil_label
+            // 
+            this.dateUntil_label.AutoSize = true;
+            this.dateUntil_label.Location = new System.Drawing.Point(1384, 333);
+            this.dateUntil_label.Name = "dateUntil_label";
+            this.dateUntil_label.Size = new System.Drawing.Size(214, 37);
+            this.dateUntil_label.TabIndex = 20;
+            this.dateUntil_label.Text = "Available until";
+            // 
+            // roomInfo_label
+            // 
+            this.roomInfo_label.AutoSize = true;
+            this.roomInfo_label.Location = new System.Drawing.Point(1384, 481);
+            this.roomInfo_label.Name = "roomInfo_label";
+            this.roomInfo_label.Size = new System.Drawing.Size(163, 37);
+            this.roomInfo_label.TabIndex = 21;
+            this.roomInfo_label.Text = "Room info";
             // 
             // AdminPanel
             // 
@@ -146,6 +186,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1879, 874);
+            this.Controls.Add(this.roomInfo_label);
+            this.Controls.Add(this.dateUntil_label);
+            this.Controls.Add(this.dateFrom_label);
+            this.Controls.Add(this.roomType_label);
             this.Controls.Add(this.roomType_combo);
             this.Controls.Add(this.addRoom_btn);
             this.Controls.Add(this.roomInfo_textbox);
@@ -177,5 +221,9 @@
         private System.Windows.Forms.TextBox dateUntil_textbox;
         private System.Windows.Forms.Button addRoom_btn;
         private System.Windows.Forms.ComboBox roomType_combo;
+        private System.Windows.Forms.Label roomType_label;
+        private System.Windows.Forms.Label dateFrom_label;
+        private System.Windows.Forms.Label dateUntil_label;
+        private System.Windows.Forms.Label roomInfo_label;
     }
 }
