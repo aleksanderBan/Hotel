@@ -70,6 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="CreateBookingAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateBookingAdmin.Designer.cs">
+      <DependentUpon>CreateBookingAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDateForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookingHistory.resx">
       <DependentUpon>BookingHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateBookingAdmin.resx">
+      <DependentUpon>CreateBookingAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rooms.resx">
       <DependentUpon>Rooms.cs</DependentUpon>

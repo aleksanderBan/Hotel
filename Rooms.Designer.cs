@@ -37,6 +37,7 @@
             this.findRooms_btn = new System.Windows.Forms.Button();
             this.availableRooms_list = new System.Windows.Forms.ListBox();
             this.bookingHistory_btn = new System.Windows.Forms.Button();
+            this.logout_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // arrivalDate_label
@@ -124,12 +125,23 @@
             this.bookingHistory_btn.UseVisualStyleBackColor = true;
             this.bookingHistory_btn.Click += new System.EventHandler(this.BookingHistory_btn_Click);
             // 
+            // logout_btn
+            // 
+            this.logout_btn.Location = new System.Drawing.Point(107, 683);
+            this.logout_btn.Name = "logout_btn";
+            this.logout_btn.Size = new System.Drawing.Size(200, 94);
+            this.logout_btn.TabIndex = 9;
+            this.logout_btn.Text = "Log out";
+            this.logout_btn.UseVisualStyleBackColor = true;
+            this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
+            // 
             // Rooms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1455, 832);
+            this.Controls.Add(this.logout_btn);
             this.Controls.Add(this.bookingHistory_btn);
             this.Controls.Add(this.availableRooms_list);
             this.Controls.Add(this.findRooms_btn);
@@ -157,5 +169,6 @@
         private System.Windows.Forms.Button findRooms_btn;
         private System.Windows.Forms.ListBox availableRooms_list;
         private System.Windows.Forms.Button bookingHistory_btn;
+        private System.Windows.Forms.Button logout_btn;
     }
 }

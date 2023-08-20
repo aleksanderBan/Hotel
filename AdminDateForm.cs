@@ -47,5 +47,11 @@ namespace Hotel
                 MessageBox.Show("Failed to update date. Please try again.");
             }
         }
+
+        private void back_btn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Dispose();
+        }
     }
 }

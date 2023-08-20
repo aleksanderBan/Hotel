@@ -33,6 +33,7 @@
             this.email_textbox2 = new System.Windows.Forms.TextBox();
             this.usrnm_textbox = new System.Windows.Forms.TextBox();
             this.createAccount_btn2 = new System.Windows.Forms.Button();
+            this.back_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // email_label2
@@ -77,11 +78,22 @@
             this.createAccount_btn2.UseVisualStyleBackColor = true;
             this.createAccount_btn2.Click += new System.EventHandler(this.createAccount_btn2_Click);
             // 
+            // back_btn
+            // 
+            this.back_btn.Location = new System.Drawing.Point(767, 107);
+            this.back_btn.Name = "back_btn";
+            this.back_btn.Size = new System.Drawing.Size(187, 95);
+            this.back_btn.TabIndex = 5;
+            this.back_btn.Text = "Go back";
+            this.back_btn.UseVisualStyleBackColor = true;
+            this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
+            // 
             // CreateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 604);
+            this.Controls.Add(this.back_btn);
             this.Controls.Add(this.createAccount_btn2);
             this.Controls.Add(this.usrnm_textbox);
             this.Controls.Add(this.email_textbox2);
@@ -101,5 +113,6 @@
         private System.Windows.Forms.TextBox email_textbox2;
         private System.Windows.Forms.TextBox usrnm_textbox;
         private System.Windows.Forms.Button createAccount_btn2;
+        private System.Windows.Forms.Button back_btn;
     }
 }

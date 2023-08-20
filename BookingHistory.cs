@@ -88,5 +88,11 @@ namespace Hotel
 
             return -1; // Return a sentinel value to indicate failure
         }
+
+        private void back_btn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Dispose();
+        }
     }
 }

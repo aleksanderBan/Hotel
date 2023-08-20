@@ -467,5 +467,23 @@ namespace Hotel
             }
         }
 
+        // Extract booking ID from booking details
+        public int ExtractBookingId(string bookingDetails)
+        {
+            // Find the index of "Booking ID:" and extract the substring after it
+            int idIndex = bookingDetails.IndexOf("Booking ID:") + 11;
+            int commaIndex = bookingDetails.IndexOf(",", idIndex);
+            string idSubstring = bookingDetails.Substring(idIndex, commaIndex - idIndex);
+
+            // Convert the extracted substring to an integer
+            if (int.TryParse(idSubstring.Trim(), out int bookingId))
+            {
+                return bookingId;
+            }
+
+            // Return -1 if extraction fails
+            return -1;
+        }
+
     }
 }

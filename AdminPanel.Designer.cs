@@ -43,12 +43,16 @@
             this.dateFrom_label = new System.Windows.Forms.Label();
             this.dateUntil_label = new System.Windows.Forms.Label();
             this.roomInfo_label = new System.Windows.Forms.Label();
+            this.bookingsAdmin_label = new System.Windows.Forms.Label();
+            this.removeBookings_btn = new System.Windows.Forms.Button();
+            this.logoutAdmin_btn = new System.Windows.Forms.Button();
+            this.adminBookingForm_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bookingsOverwatch_list
             // 
             this.bookingsOverwatch_list.FormattingEnabled = true;
-            this.bookingsOverwatch_list.Location = new System.Drawing.Point(77, 71);
+            this.bookingsOverwatch_list.Location = new System.Drawing.Point(55, 195);
             this.bookingsOverwatch_list.Name = "bookingsOverwatch_list";
             this.bookingsOverwatch_list.Size = new System.Drawing.Size(536, 391);
             this.bookingsOverwatch_list.TabIndex = 0;
@@ -84,7 +88,7 @@
             // 
             // loadBookings_btn
             // 
-            this.loadBookings_btn.Location = new System.Drawing.Point(122, 675);
+            this.loadBookings_btn.Location = new System.Drawing.Point(55, 610);
             this.loadBookings_btn.Name = "loadBookings_btn";
             this.loadBookings_btn.Size = new System.Drawing.Size(166, 70);
             this.loadBookings_btn.TabIndex = 10;
@@ -180,12 +184,55 @@
             this.roomInfo_label.TabIndex = 21;
             this.roomInfo_label.Text = "Room info";
             // 
+            // bookingsAdmin_label
+            // 
+            this.bookingsAdmin_label.AutoSize = true;
+            this.bookingsAdmin_label.Location = new System.Drawing.Point(62, 94);
+            this.bookingsAdmin_label.Name = "bookingsAdmin_label";
+            this.bookingsAdmin_label.Size = new System.Drawing.Size(149, 37);
+            this.bookingsAdmin_label.TabIndex = 22;
+            this.bookingsAdmin_label.Text = "Bookings";
+            // 
+            // removeBookings_btn
+            // 
+            this.removeBookings_btn.Location = new System.Drawing.Point(55, 723);
+            this.removeBookings_btn.Name = "removeBookings_btn";
+            this.removeBookings_btn.Size = new System.Drawing.Size(224, 106);
+            this.removeBookings_btn.TabIndex = 23;
+            this.removeBookings_btn.Text = "Remove Booking";
+            this.removeBookings_btn.UseVisualStyleBackColor = true;
+            this.removeBookings_btn.Click += new System.EventHandler(this.removeBookings_btn_Click);
+            // 
+            // logoutAdmin_btn
+            // 
+            this.logoutAdmin_btn.Location = new System.Drawing.Point(375, 61);
+            this.logoutAdmin_btn.Name = "logoutAdmin_btn";
+            this.logoutAdmin_btn.Size = new System.Drawing.Size(169, 70);
+            this.logoutAdmin_btn.TabIndex = 24;
+            this.logoutAdmin_btn.Text = "Log out";
+            this.logoutAdmin_btn.UseVisualStyleBackColor = true;
+            this.logoutAdmin_btn.Click += new System.EventHandler(this.logoutAdmin_btn_Click);
+            // 
+            // adminBookingForm_btn
+            // 
+            this.adminBookingForm_btn.Location = new System.Drawing.Point(412, 674);
+            this.adminBookingForm_btn.Name = "adminBookingForm_btn";
+            this.adminBookingForm_btn.Size = new System.Drawing.Size(149, 88);
+            this.adminBookingForm_btn.TabIndex = 25;
+            this.adminBookingForm_btn.Text = "Create Booking";
+            this.adminBookingForm_btn.UseVisualStyleBackColor = true;
+            this.adminBookingForm_btn.Click += new System.EventHandler(this.adminBookingForm_btn_Click);
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1879, 874);
+            this.Controls.Add(this.adminBookingForm_btn);
+            this.Controls.Add(this.logoutAdmin_btn);
+            this.Controls.Add(this.removeBookings_btn);
+            this.Controls.Add(this.bookingsAdmin_label);
             this.Controls.Add(this.roomInfo_label);
             this.Controls.Add(this.dateUntil_label);
             this.Controls.Add(this.dateFrom_label);
@@ -225,5 +272,9 @@
         private System.Windows.Forms.Label dateFrom_label;
         private System.Windows.Forms.Label dateUntil_label;
         private System.Windows.Forms.Label roomInfo_label;
+        private System.Windows.Forms.Label bookingsAdmin_label;
+        private System.Windows.Forms.Button removeBookings_btn;
+        private System.Windows.Forms.Button logoutAdmin_btn;
+        private System.Windows.Forms.Button adminBookingForm_btn;
     }
 }

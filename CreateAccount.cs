@@ -46,5 +46,13 @@ namespace Hotel
             login.Show(); // Call the method in Form1 to show it again
             this.Close(); // Close Form2
         }
+
+        private void back_btn_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+            this.Dispose();
+        }
     }
 }

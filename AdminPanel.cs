@@ -95,5 +95,70 @@ namespace Hotel
                 MessageBox.Show("Failed to add room.");
             }
         }
+
+        private void removeBookings_btn_Click(object sender, EventArgs e)
+        {
+            // Get the selected booking items from the checked list box
+            List<string> selectedBookings = new List<string>();
+            foreach (var item in bookingsOverwatch_list.CheckedItems)
+            {
+                selectedBookings.Add(item.ToString());
+            }
+
+            if (selectedBookings.Count > 0)
+            {
+                // Show a confirmation dialog
+                var result = MessageBox.Show("Are you sure you want to delete the selected bookings?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    foreach (string bookingDetails in selectedBookings)
+                    {
+                        // Extract the booking ID from the booking details string using the Data class method
+                        int bookingId = data.ExtractBookingId(bookingDetails);
+
+                        if (bookingId != -1)
+                        {
+                            // Call the Data class method to remove the booking
+                            if (data.DBRemoveBooking(bookingId))
+                            {
+                                // Find the index of the booking details in the list box
+                                int index = bookingsOverwatch_list.Items.IndexOf(bookingDetails);
+                                if (index != -1)
+                                {
+                                    // Remove the selected booking from the checked list box
+                                    bookingsOverwatch_list.Items.RemoveAt(index);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Failed to delete booking with Booking ID: {bookingId}.");
+                            }
+                        }
+                    }
+
+                    MessageBox.Show("Selected bookings deleted successfully!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select at least one booking to delete.");
+            }
+        }
+
+        private void logoutAdmin_btn_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+            this.Dispose();
+            MessageBox.Show("k bye");
+        }
+
+        private void adminBookingForm_btn_Click(object sender, EventArgs e)
+        {
+            CreateBookingAdmin adminbookform = new CreateBookingAdmin();
+            adminbookform.Show();
+        }
     }
 }

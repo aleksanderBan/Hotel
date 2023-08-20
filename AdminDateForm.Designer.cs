@@ -37,6 +37,7 @@
             this.currentDateUntil_label = new System.Windows.Forms.Label();
             this.newDateUntil_label = new System.Windows.Forms.Label();
             this.newDateUntil_textbox = new System.Windows.Forms.TextBox();
+            this.back_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // currentDateFrom_label
@@ -117,11 +118,22 @@
             this.newDateUntil_textbox.Size = new System.Drawing.Size(220, 44);
             this.newDateUntil_textbox.TabIndex = 8;
             // 
+            // back_btn
+            // 
+            this.back_btn.Location = new System.Drawing.Point(811, 547);
+            this.back_btn.Name = "back_btn";
+            this.back_btn.Size = new System.Drawing.Size(191, 93);
+            this.back_btn.TabIndex = 9;
+            this.back_btn.Text = "Go back";
+            this.back_btn.UseVisualStyleBackColor = true;
+            this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
+            // 
             // AdminDateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1094, 679);
+            this.Controls.Add(this.back_btn);
             this.Controls.Add(this.newDateUntil_textbox);
             this.Controls.Add(this.newDateUntil_label);
             this.Controls.Add(this.currentDateUntil_label);
@@ -149,5 +161,6 @@
         private System.Windows.Forms.Label currentDateUntil_label;
         private System.Windows.Forms.Label newDateUntil_label;
         private System.Windows.Forms.TextBox newDateUntil_textbox;
+        private System.Windows.Forms.Button back_btn;
     }
 }
