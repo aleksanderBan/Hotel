@@ -58,7 +58,7 @@ namespace Hotel
 
                     if (data.DBInsertBooking(username, arrivalDateStr, departureDateStr, selectedRoom.RoomId))
                     {
-                        MessageBox.Show($"Booking for Room ID: {selectedRoom.RoomId} is successful!");
+                        MessageBox.Show($"Booking for Room ID: {selectedRoom.RoomId} is successful! A confirmation has been sent to your mailbox.");
                     }
                     else {
                         MessageBox.Show($"Booking for Room ID: {selectedRoom.RoomId} failed!");

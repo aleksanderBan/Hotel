@@ -136,7 +136,7 @@ namespace Hotel
             login.Show();
             this.Hide();
             this.Dispose();
-            MessageBox.Show("k bye");
+            MessageBox.Show("Logged out");
         }
 
         //Book a room as admin

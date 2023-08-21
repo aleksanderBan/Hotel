@@ -37,6 +37,7 @@
             this.adminPswd_textbox = new System.Windows.Forms.TextBox();
             this.adminPswd_label = new System.Windows.Forms.Label();
             this.adminLogin_label = new System.Windows.Forms.Label();
+            this.login_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // email_label
@@ -62,7 +63,7 @@
             this.createAccount_btn.Name = "createAccount_btn";
             this.createAccount_btn.Size = new System.Drawing.Size(264, 101);
             this.createAccount_btn.TabIndex = 3;
-            this.createAccount_btn.Text = "Create Account";
+            this.createAccount_btn.Text = "Create account";
             this.createAccount_btn.UseVisualStyleBackColor = true;
             this.createAccount_btn.Click += new System.EventHandler(this.CreateAccount_btn_Click);
             // 
@@ -122,11 +123,22 @@
             this.adminLogin_label.TabIndex = 9;
             this.adminLogin_label.Text = "Login as system Admin";
             // 
+            // login_label
+            // 
+            this.login_label.AutoSize = true;
+            this.login_label.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.login_label.Location = new System.Drawing.Point(58, 46);
+            this.login_label.Name = "login_label";
+            this.login_label.Size = new System.Drawing.Size(108, 42);
+            this.login_label.TabIndex = 10;
+            this.login_label.Text = "Login";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1385, 804);
+            this.Controls.Add(this.login_label);
             this.Controls.Add(this.adminLogin_label);
             this.Controls.Add(this.adminPswd_label);
             this.Controls.Add(this.adminPswd_textbox);
@@ -154,6 +166,7 @@
         private System.Windows.Forms.TextBox adminPswd_textbox;
         private System.Windows.Forms.Label adminPswd_label;
         private System.Windows.Forms.Label adminLogin_label;
+        private System.Windows.Forms.Label login_label;
     }
 }
 
