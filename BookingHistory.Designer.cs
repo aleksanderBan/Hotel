@@ -70,7 +70,7 @@
             this.Controls.Add(this.removeBooking_btn);
             this.Controls.Add(this.bookingHistory_list);
             this.Name = "BookingHistory";
-            this.Text = "BookingHistory";
+            this.Text = "Booking History";
             this.ResumeLayout(false);
 
         }

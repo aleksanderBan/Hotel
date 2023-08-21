@@ -59,24 +59,26 @@
             // newDateFrom_label
             // 
             this.newDateFrom_label.AutoSize = true;
+            this.newDateFrom_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.newDateFrom_label.Location = new System.Drawing.Point(116, 333);
             this.newDateFrom_label.Name = "newDateFrom_label";
-            this.newDateFrom_label.Size = new System.Drawing.Size(226, 37);
+            this.newDateFrom_label.Size = new System.Drawing.Size(251, 40);
             this.newDateFrom_label.TabIndex = 2;
             this.newDateFrom_label.Text = "New date from";
             // 
             // currentDateFrom_label2
             // 
             this.currentDateFrom_label2.AutoSize = true;
+            this.currentDateFrom_label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.currentDateFrom_label2.Location = new System.Drawing.Point(114, 45);
             this.currentDateFrom_label2.Name = "currentDateFrom_label2";
-            this.currentDateFrom_label2.Size = new System.Drawing.Size(269, 37);
+            this.currentDateFrom_label2.Size = new System.Drawing.Size(299, 40);
             this.currentDateFrom_label2.TabIndex = 3;
             this.currentDateFrom_label2.Text = "Current date from";
             // 
             // updateDate_btn
             // 
-            this.updateDate_btn.Location = new System.Drawing.Point(468, 529);
+            this.updateDate_btn.Location = new System.Drawing.Point(412, 491);
             this.updateDate_btn.Name = "updateDate_btn";
             this.updateDate_btn.Size = new System.Drawing.Size(159, 87);
             this.updateDate_btn.TabIndex = 4;
@@ -87,9 +89,10 @@
             // currentDateUntil_label2
             // 
             this.currentDateUntil_label2.AutoSize = true;
+            this.currentDateUntil_label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.currentDateUntil_label2.Location = new System.Drawing.Point(498, 45);
             this.currentDateUntil_label2.Name = "currentDateUntil_label2";
-            this.currentDateUntil_label2.Size = new System.Drawing.Size(263, 37);
+            this.currentDateUntil_label2.Size = new System.Drawing.Size(293, 40);
             this.currentDateUntil_label2.TabIndex = 5;
             this.currentDateUntil_label2.Text = "Current date until";
             // 
@@ -105,9 +108,10 @@
             // newDateUntil_label
             // 
             this.newDateUntil_label.AutoSize = true;
+            this.newDateUntil_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.newDateUntil_label.Location = new System.Drawing.Point(615, 333);
             this.newDateUntil_label.Name = "newDateUntil_label";
-            this.newDateUntil_label.Size = new System.Drawing.Size(220, 37);
+            this.newDateUntil_label.Size = new System.Drawing.Size(245, 40);
             this.newDateUntil_label.TabIndex = 7;
             this.newDateUntil_label.Text = "New date until";
             // 
@@ -144,7 +148,7 @@
             this.Controls.Add(this.newDateFrom_textbox);
             this.Controls.Add(this.currentDateFrom_label);
             this.Name = "AdminDateForm";
-            this.Text = "AdminDateForm";
+            this.Text = "Date Update";
             this.ResumeLayout(false);
             this.PerformLayout();
 

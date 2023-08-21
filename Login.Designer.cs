@@ -36,27 +36,29 @@
             this.label1 = new System.Windows.Forms.Label();
             this.adminPswd_textbox = new System.Windows.Forms.TextBox();
             this.adminPswd_label = new System.Windows.Forms.Label();
+            this.adminLogin_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // email_label
             // 
             this.email_label.AutoSize = true;
-            this.email_label.Location = new System.Drawing.Point(113, 149);
+            this.email_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.email_label.Location = new System.Drawing.Point(58, 190);
             this.email_label.Name = "email_label";
-            this.email_label.Size = new System.Drawing.Size(97, 37);
+            this.email_label.Size = new System.Drawing.Size(107, 40);
             this.email_label.TabIndex = 0;
             this.email_label.Text = "Email";
             // 
             // email_textbox
             // 
-            this.email_textbox.Location = new System.Drawing.Point(111, 267);
+            this.email_textbox.Location = new System.Drawing.Point(203, 191);
             this.email_textbox.Name = "email_textbox";
-            this.email_textbox.Size = new System.Drawing.Size(346, 44);
+            this.email_textbox.Size = new System.Drawing.Size(426, 44);
             this.email_textbox.TabIndex = 2;
             // 
             // createAccount_btn
             // 
-            this.createAccount_btn.Location = new System.Drawing.Point(111, 627);
+            this.createAccount_btn.Location = new System.Drawing.Point(181, 562);
             this.createAccount_btn.Name = "createAccount_btn";
             this.createAccount_btn.Size = new System.Drawing.Size(264, 101);
             this.createAccount_btn.TabIndex = 3;
@@ -66,7 +68,7 @@
             // 
             // login_btn
             // 
-            this.login_btn.Location = new System.Drawing.Point(111, 428);
+            this.login_btn.Location = new System.Drawing.Point(214, 344);
             this.login_btn.Name = "login_btn";
             this.login_btn.Size = new System.Drawing.Size(207, 77);
             this.login_btn.TabIndex = 4;
@@ -76,9 +78,9 @@
             // 
             // adminLogin_btn
             // 
-            this.adminLogin_btn.Location = new System.Drawing.Point(901, 353);
+            this.adminLogin_btn.Location = new System.Drawing.Point(901, 344);
             this.adminLogin_btn.Name = "adminLogin_btn";
-            this.adminLogin_btn.Size = new System.Drawing.Size(212, 68);
+            this.adminLogin_btn.Size = new System.Drawing.Size(207, 77);
             this.adminLogin_btn.TabIndex = 5;
             this.adminLogin_btn.Text = "Login";
             this.adminLogin_btn.UseVisualStyleBackColor = true;
@@ -89,13 +91,13 @@
             this.label1.BackColor = System.Drawing.SystemColors.InfoText;
             this.label1.Location = new System.Drawing.Point(697, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1, 677);
+            this.label1.Size = new System.Drawing.Size(5, 677);
             this.label1.TabIndex = 6;
             this.label1.Text = "label1";
             // 
             // adminPswd_textbox
             // 
-            this.adminPswd_textbox.Location = new System.Drawing.Point(901, 243);
+            this.adminPswd_textbox.Location = new System.Drawing.Point(979, 186);
             this.adminPswd_textbox.Name = "adminPswd_textbox";
             this.adminPswd_textbox.Size = new System.Drawing.Size(254, 44);
             this.adminPswd_textbox.TabIndex = 7;
@@ -103,17 +105,29 @@
             // adminPswd_label
             // 
             this.adminPswd_label.AutoSize = true;
-            this.adminPswd_label.Location = new System.Drawing.Point(894, 149);
+            this.adminPswd_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.adminPswd_label.Location = new System.Drawing.Point(768, 189);
             this.adminPswd_label.Name = "adminPswd_label";
-            this.adminPswd_label.Size = new System.Drawing.Size(158, 37);
+            this.adminPswd_label.Size = new System.Drawing.Size(175, 40);
             this.adminPswd_label.TabIndex = 8;
             this.adminPswd_label.Text = "Password";
+            // 
+            // adminLogin_label
+            // 
+            this.adminLogin_label.AutoSize = true;
+            this.adminLogin_label.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminLogin_label.Location = new System.Drawing.Point(768, 39);
+            this.adminLogin_label.Name = "adminLogin_label";
+            this.adminLogin_label.Size = new System.Drawing.Size(391, 42);
+            this.adminLogin_label.TabIndex = 9;
+            this.adminLogin_label.Text = "Login as system Admin";
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1385, 804);
+            this.Controls.Add(this.adminLogin_label);
             this.Controls.Add(this.adminPswd_label);
             this.Controls.Add(this.adminPswd_textbox);
             this.Controls.Add(this.label1);
@@ -139,6 +153,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox adminPswd_textbox;
         private System.Windows.Forms.Label adminPswd_label;
+        private System.Windows.Forms.Label adminLogin_label;
     }
 }
 

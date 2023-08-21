@@ -39,7 +39,7 @@
             // email_label2
             // 
             this.email_label2.AutoSize = true;
-            this.email_label2.Location = new System.Drawing.Point(99, 42);
+            this.email_label2.Location = new System.Drawing.Point(99, 107);
             this.email_label2.Name = "email_label2";
             this.email_label2.Size = new System.Drawing.Size(97, 37);
             this.email_label2.TabIndex = 0;
@@ -48,7 +48,7 @@
             // usrnm_label
             // 
             this.usrnm_label.AutoSize = true;
-            this.usrnm_label.Location = new System.Drawing.Point(99, 240);
+            this.usrnm_label.Location = new System.Drawing.Point(32, 207);
             this.usrnm_label.Name = "usrnm_label";
             this.usrnm_label.Size = new System.Drawing.Size(164, 37);
             this.usrnm_label.TabIndex = 1;
@@ -56,21 +56,21 @@
             // 
             // email_textbox2
             // 
-            this.email_textbox2.Location = new System.Drawing.Point(106, 113);
+            this.email_textbox2.Location = new System.Drawing.Point(258, 107);
             this.email_textbox2.Name = "email_textbox2";
-            this.email_textbox2.Size = new System.Drawing.Size(100, 44);
+            this.email_textbox2.Size = new System.Drawing.Size(282, 44);
             this.email_textbox2.TabIndex = 2;
             // 
             // usrnm_textbox
             // 
-            this.usrnm_textbox.Location = new System.Drawing.Point(106, 352);
+            this.usrnm_textbox.Location = new System.Drawing.Point(258, 200);
             this.usrnm_textbox.Name = "usrnm_textbox";
-            this.usrnm_textbox.Size = new System.Drawing.Size(100, 44);
+            this.usrnm_textbox.Size = new System.Drawing.Size(282, 44);
             this.usrnm_textbox.TabIndex = 3;
             // 
             // createAccount_btn2
             // 
-            this.createAccount_btn2.Location = new System.Drawing.Point(448, 472);
+            this.createAccount_btn2.Location = new System.Drawing.Point(448, 352);
             this.createAccount_btn2.Name = "createAccount_btn2";
             this.createAccount_btn2.Size = new System.Drawing.Size(282, 98);
             this.createAccount_btn2.TabIndex = 4;
@@ -80,7 +80,7 @@
             // 
             // back_btn
             // 
-            this.back_btn.Location = new System.Drawing.Point(767, 107);
+            this.back_btn.Location = new System.Drawing.Point(890, 27);
             this.back_btn.Name = "back_btn";
             this.back_btn.Size = new System.Drawing.Size(187, 95);
             this.back_btn.TabIndex = 5;
@@ -100,7 +100,7 @@
             this.Controls.Add(this.usrnm_label);
             this.Controls.Add(this.email_label2);
             this.Name = "CreateAccount";
-            this.Text = "CreateAccount";
+            this.Text = "Create Account";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,15 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Hotel
 {
@@ -17,12 +7,12 @@ namespace Hotel
     {
         private Data data = new Data();
 
-        private Login login; // A variable to store the reference of Form1
+        private Login login;
 
         public CreateAccount(Login loginReference)
         {
             InitializeComponent();
-            login = loginReference; // Store the reference of Form1
+            login = loginReference;
         }
 
         private void createAccount_btn2_Click(object sender, EventArgs e)
@@ -43,8 +33,8 @@ namespace Hotel
                 MessageBox.Show("Failed to create the account.");
             }
 
-            login.Show(); // Call the method in Form1 to show it again
-            this.Close(); // Close Form2
+            login.Show();
+            this.Close();
         }
 
         private void back_btn_Click(object sender, EventArgs e)

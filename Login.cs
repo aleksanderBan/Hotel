@@ -6,7 +6,7 @@ namespace Hotel
     public partial class Login : Form
     {
         private Data data = new Data();
-        private string loggedInUsername; // Store the logged-in username
+        private string loggedInUsername;
         string adminPswd = "admin";
 
         public Login()
@@ -32,17 +32,14 @@ namespace Hotel
         {
             string input_email = email_textbox.Text;
 
-            // Check if the input email exists in the database
             bool emailExists = data.DBCheckEmail(input_email);
 
             if (emailExists)
             {
-                // Get the username associated with the input email
                 loggedInUsername = data.DBGetAccountUsername(input_email);
 
-                // Proceed with further actions since the email exists in the database
                 MessageBox.Show($"Logged in as {loggedInUsername}");
-                Rooms RoomsForm = new Rooms(loggedInUsername); // Pass the username to the Rooms form
+                Rooms RoomsForm = new Rooms(loggedInUsername);
                 RoomsForm.Show();
                 this.Hide();
             }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Remoting;
 using MySqlConnector;
 
 namespace Hotel
@@ -246,13 +245,13 @@ namespace Hotel
 
                     int rowsAffected = command.ExecuteNonQuery();
 
-                    return rowsAffected > 0; // Return true if rows were affected (booking removed)
+                    return rowsAffected > 0;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return false; // Return false if an error occurred
+                return false;
             }
         }
 
@@ -261,7 +260,7 @@ namespace Hotel
         {
             List<string> roomInfoList = new List<string>();
 
-            string query = "SELECT id, type, datefrom, dateuntil FROM rooms";
+            string query = "SELECT type, datefrom, dateuntil FROM rooms";
 
             using (MySqlConnection connection = new MySqlConnection(ConnectionString))
             {
@@ -274,13 +273,11 @@ namespace Hotel
                     {
                         while (reader.Read())
                         {
-                            string roomId = reader["id"].ToString();
                             string roomType = reader["type"].ToString();
                             string dateFrom = reader["datefrom"].ToString();
                             string dateUntil = reader["dateuntil"].ToString();
 
-                            // Construct the room information string with "datefrom" and "dateuntil" values
-                            string roomInfo = $"ID: {roomId}, Type: {roomType}, Available From: {dateFrom} Until: {dateUntil}";
+                            string roomInfo = $"Room type: {roomType}, Available From: {dateFrom}, Available Until: {dateUntil}";
                             roomInfoList.Add(roomInfo);
                         }
                     }
