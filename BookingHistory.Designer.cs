@@ -36,14 +36,14 @@
             // bookingHistory_list
             // 
             this.bookingHistory_list.FormattingEnabled = true;
-            this.bookingHistory_list.Location = new System.Drawing.Point(141, 93);
+            this.bookingHistory_list.Location = new System.Drawing.Point(62, 104);
             this.bookingHistory_list.Name = "bookingHistory_list";
-            this.bookingHistory_list.Size = new System.Drawing.Size(384, 348);
+            this.bookingHistory_list.Size = new System.Drawing.Size(607, 348);
             this.bookingHistory_list.TabIndex = 1;
             // 
             // removeBooking_btn
             // 
-            this.removeBooking_btn.Location = new System.Drawing.Point(764, 137);
+            this.removeBooking_btn.Location = new System.Drawing.Point(764, 104);
             this.removeBooking_btn.Name = "removeBooking_btn";
             this.removeBooking_btn.Size = new System.Drawing.Size(240, 132);
             this.removeBooking_btn.TabIndex = 2;
@@ -53,9 +53,9 @@
             // 
             // back_btn
             // 
-            this.back_btn.Location = new System.Drawing.Point(744, 349);
+            this.back_btn.Location = new System.Drawing.Point(764, 348);
             this.back_btn.Name = "back_btn";
-            this.back_btn.Size = new System.Drawing.Size(230, 104);
+            this.back_btn.Size = new System.Drawing.Size(240, 104);
             this.back_btn.TabIndex = 3;
             this.back_btn.Text = "Go back";
             this.back_btn.UseVisualStyleBackColor = true;

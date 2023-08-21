@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions; // Add this for regular expressions
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,38 +19,32 @@ namespace Hotel
         {
             InitializeComponent();
 
-            // Display the booking history in the ListBox
             bookingHistory_list.Items.Clear();
             bookingHistory_list.Items.AddRange(bookingHistory.ToArray());
         }
 
         private void RemoveBooking_btn_Click(object sender, EventArgs e)
         {
-            // Check if items are checked in the booking history checked list box
             if (bookingHistory_list.CheckedItems.Count > 0)
             {
                 var selectedBookings = new List<string>();
 
-                // Get the selected booking details for all checked items
                 foreach (var selectedItem in bookingHistory_list.CheckedItems)
                 {
                     selectedBookings.Add(selectedItem.ToString());
                 }
 
-                // Show a confirmation dialog
                 var result = MessageBox.Show($"Are you sure you want to remove {selectedBookings.Count} bookings?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                // If the user confirms, proceed with removal
                 if (result == DialogResult.Yes)
                 {
                     foreach (var selectedBooking in selectedBookings)
                     {
                         int bookingId = ExtractBookingId(selectedBooking);
-                        if (bookingId != -1) // Check if booking ID extraction is successful
+                        if (bookingId != -1)
                         {
                             if (data.DBRemoveBooking(bookingId))
                             {
-                                // Remove the selected booking from the list
                                 bookingHistory_list.Items.Remove(selectedBooking);
                             }
                             else
@@ -64,7 +58,6 @@ namespace Hotel
                         }
                     }
 
-                    // Show a success message or perform any other actions you need
                     MessageBox.Show($"{selectedBookings.Count} bookings have been removed successfully!");
                 }
             }
@@ -86,7 +79,7 @@ namespace Hotel
                 return bookingId;
             }
 
-            return -1; // Return a sentinel value to indicate failure
+            return -1;
         }
 
         private void back_btn_Click(object sender, EventArgs e)

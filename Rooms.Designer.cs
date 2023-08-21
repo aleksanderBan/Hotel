@@ -114,7 +114,7 @@
             this.availableRooms_list.Location = new System.Drawing.Point(661, 68);
             this.availableRooms_list.Name = "availableRooms_list";
             this.availableRooms_list.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.availableRooms_list.Size = new System.Drawing.Size(730, 300);
+            this.availableRooms_list.Size = new System.Drawing.Size(1338, 300);
             this.availableRooms_list.TabIndex = 7;
             this.availableRooms_list.SelectedIndexChanged += new System.EventHandler(this.AvailableRooms_list_SelectedIndexChanged);
             // 
@@ -122,7 +122,7 @@
             // 
             this.bookingHistory_btn.Location = new System.Drawing.Point(875, 431);
             this.bookingHistory_btn.Name = "bookingHistory_btn";
-            this.bookingHistory_btn.Size = new System.Drawing.Size(261, 80);
+            this.bookingHistory_btn.Size = new System.Drawing.Size(271, 122);
             this.bookingHistory_btn.TabIndex = 8;
             this.bookingHistory_btn.Text = "Booking history";
             this.bookingHistory_btn.UseVisualStyleBackColor = true;
@@ -130,7 +130,7 @@
             // 
             // logout_btn
             // 
-            this.logout_btn.Location = new System.Drawing.Point(39, 713);
+            this.logout_btn.Location = new System.Drawing.Point(63, 674);
             this.logout_btn.Name = "logout_btn";
             this.logout_btn.Size = new System.Drawing.Size(200, 94);
             this.logout_btn.TabIndex = 9;
@@ -143,7 +143,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1455, 832);
+            this.ClientSize = new System.Drawing.Size(2037, 832);
             this.Controls.Add(this.logout_btn);
             this.Controls.Add(this.bookingHistory_btn);
             this.Controls.Add(this.availableRooms_list);

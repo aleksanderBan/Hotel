@@ -199,7 +199,7 @@ namespace Hotel
         {
             List<string> bookingHistory = new List<string>();
 
-            string query = "SELECT id, doa, dol FROM booking WHERE name = @username";
+            string query = "SELECT id, roomid FROM booking WHERE name = @username";
 
             using (MySqlConnection connection = new MySqlConnection(ConnectionString))
             {
@@ -214,9 +214,8 @@ namespace Hotel
                         while (reader.Read())
                         {
                             string bookingId = reader["id"].ToString();
-                            string arrivalDate = reader["doa"].ToString();
-                            string departureDate = reader["dol"].ToString();
-                            string bookingDetails = $"Booking ID: {bookingId}, Arrival: {arrivalDate}, Departure: {departureDate}";
+                            string roomId = reader["roomid"].ToString();
+                            string bookingDetails = $"Booking ID: {bookingId}, Room no.{roomId}";
                             bookingHistory.Add(bookingDetails);
                         }
                     }
@@ -260,7 +259,7 @@ namespace Hotel
         {
             List<string> roomInfoList = new List<string>();
 
-            string query = "SELECT type, datefrom, dateuntil FROM rooms";
+            string query = "SELECT id, type, datefrom, dateuntil FROM rooms";
 
             using (MySqlConnection connection = new MySqlConnection(ConnectionString))
             {
@@ -273,11 +272,13 @@ namespace Hotel
                     {
                         while (reader.Read())
                         {
+                            string roomId = reader["id"].ToString();
                             string roomType = reader["type"].ToString();
-                            string dateFrom = reader["datefrom"].ToString();
-                            string dateUntil = reader["dateuntil"].ToString();
 
-                            string roomInfo = $"Room type: {roomType}, Available From: {dateFrom}, Available Until: {dateUntil}";
+                            DateTime dateFrom = Convert.ToDateTime(reader["datefrom"]);
+                            DateTime dateUntil = Convert.ToDateTime(reader["dateuntil"]);
+
+                            string roomInfo = $"Room no.{roomId}, Room type: {roomType}, available from {dateFrom.ToString("yyyy-MM-dd")} to {dateUntil.ToString("yyyy-MM-dd")}";
                             roomInfoList.Add(roomInfo);
                         }
                     }
@@ -351,12 +352,12 @@ namespace Hotel
         {
             List<string> bookingsAdmin = new List<string>();
 
-            string query = "SELECT id, doa, dol FROM booking";
+            string query = "SELECT id, roomid, doa, dol FROM booking";
 
             using (MySqlConnection connection = new MySqlConnection(ConnectionString))
             {
                 MySqlCommand command = new MySqlCommand(query, connection);
-                
+
                 try
                 {
                     connection.Open();
@@ -365,9 +366,12 @@ namespace Hotel
                         while (reader.Read())
                         {
                             string bookingId = reader["id"].ToString();
-                            string arrivalDate = reader["doa"].ToString();
-                            string departureDate = reader["dol"].ToString();
-                            string bookingDetails = $"Booking ID: {bookingId}, Arrival: {arrivalDate}, Departure: {departureDate}";
+                            string roomId = reader["roomid"].ToString();
+
+                            DateTime arrivalDate = Convert.ToDateTime(reader["doa"]);
+                            DateTime departureDate = Convert.ToDateTime(reader["dol"]);
+
+                            string bookingDetails = $"Booking ID: {bookingId}, Room no.{roomId}, arrives {arrivalDate.ToString("yyyy-MM-dd")}, leaves {departureDate.ToString("yyyy-MM-dd")}";
                             bookingsAdmin.Add(bookingDetails);
                         }
                     }
